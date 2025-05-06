@@ -1,0 +1,13 @@
+[Unit]
+Description=concatenated temperature smoothener for fancontrol
+After=gputemp-lmsensors.service
+Before=fancontrol.service
+
+[Service]
+ExecStart=/usr/bin/smoothsensor.py
+Restart=always
+RestartSec=1s
+
+[Install]
+WantedBy=fancontrol.service
+
